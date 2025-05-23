@@ -1,0 +1,6 @@
+TOPLEFT	Coordinat
+Latitude : 13.772478
+Longitude: 100.482653
+BOTTOMRIGHT Coordinat
+Latitude : 13.736280
+Longitude: 100.536051

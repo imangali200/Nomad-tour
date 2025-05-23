@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+            background-color: lightblue;
+        }
+        .center ul,.right{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        ul , li a{
+            list-style: none;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        header button{
+            width: 120px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(239, 120, 120);
+            color: white;
+        }
+        main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+        }
+        .top{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+
+        }
+        .top input{
+            width: 300px;
+            height: 30px;     
+            border-radius: 10px;   
+            border: 1px solid gray;  
+            padding-left: 10px;
+        }
+        .top button{
+            width: 100px;
+            height: 29px;
+            border-radius: 10px;
+            border: none;
+            background-color:lightblue;
+            display: none;
+        }
+        .all{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 20px 40px;
+            position: relative;
+        }
+        .each img{
+            width: 350px;
+            height: 200px;
+        }
+        .each{
+            width: 350px;
+        }
+        .createDiv{
+            position: absolute;
+            top: 24%;
+            left: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: lightblue;
+            padding: 10px 20px;
+            padding-right: 25px;
+            border-radius: 10px;
+            width: 320px;
+            display: none;
+            
+        }
+        .createDiv form{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+         
+        }
+        .createDiv input{
+            width: 100%;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+
+        .close,.closeBtn{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .create{
+            width: 308px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: rgb(87, 154, 255);
+            border: none;
+        }
+        .updateDiv{
+            position: absolute;
+            top: 24%;
+            left: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: lightblue;
+            padding: 10px 20px;
+            padding-right: 25px;
+            border-radius: 10px;
+            width: 320px;
+            display: none;
+            
+        }
+        .updateDiv form{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+         
+        }
+        .updateDiv input{
+            width: 100%;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+        .updateBtnSecond{
+            width: 308px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: rgb(87, 154, 255);
+            border: none;
+        }
+        .update,.remove{
+            display: none;
+            width: 100px;
+            border: none;
+            border-radius: 10px;
+            height: 30px;
+        }
+        .bts{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .update{
+            background-color: lightblue;
+        }
+        .remove{
+            background-color: rgb(255, 145, 145);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left">
+            <h2>Nomad tour</h2>
+        </div>
+        <div class="center">
+            <ul>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="route.html">Route</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <h3 class="user"></h3>
+            <button class="logOut">Log Out</button>
+        </div>
+    </header>
+    <main>
+        <div class="top">
+            <h1>All Places</h1>
+            <input class="search" type="text" placeholder="search place">
+            <button class="createButton">Create</button>
+        </div>
+        <div class="all"></div>
+        <div class="createDiv">
+            <h1>Create PLace</h1>
+            <h2 class="close">&#10005;</h2>
+            <form action="">
+                <input type="text" class="id" placeholder="Write place id">
+                <input type="text" class="name" placeholder="Write place name">
+                <input type="text" class="latitude" placeholder="Write place latitude">
+                <input type="text" class="longitude" placeholder="Write place longitude">
+                <input type="text" class="x" placeholder="Write place x">
+                <input type="text" class="y" placeholder="Write place y">
+                <input type="text" class="type" placeholder="Write place type">
+                <input type="text" class="open_time" placeholder="Write place open_time">
+                <input type="text" class="close_time" placeholder="Write place close_time">
+                <input type="text" class="description" placeholder="Write place description">
+                <button class="create">Create</button>
+            </form>
+        </div>
+        <div class="updateDiv">
+            <h1>Update PLace</h1>
+            <h2 class="closeBtn">&#10005;</h2>
+            <form action="">
+                <input type="text" class="nameUpdate" placeholder="Write place name">
+                <input type="text" class="latitudeUpdate" placeholder="Write place latitude">
+                <input type="text" class="longitudeUpdate" placeholder="Write place longitude">
+                <input type="text" class="xUpdate" placeholder="Write place x">
+                <input type="text" class="yUpdate" placeholder="Write place y">
+                <input type="text" class="typeUpdate" placeholder="Write place type">
+                <input type="text" class="open_timeUpdate" placeholder="Write place open_time">
+                <input type="text" class="close_timeUpdate" placeholder="Write place close_time">
+                <input type="text" class="descriptionUpdate" placeholder="Write place description">
+                <button class="updateBtnSecond">Update</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const name = localStorage.getItem('name')
+        const token = localStorage.getItem('token')
+        const UserName = document.querySelector('.user')
+        UserName.textContent = name
+
+        if(token.includes('Bearer')){
+            document.querySelector('.logOut').addEventListener('click',async()=>{
+                const logres = await fetch(`http://localhost:3000/get-token/${token}`)
+            })
+            document.querySelector('.logOut').addEventListener('click',(err)=>{
+                location.href = 'index.html'
+            })
+            async function show(){
+                const placeResponse = await fetch('http://localhost:4000/place-get')
+                const placeInfos = await placeResponse.json()
+                const dataPlace = placeInfos.placeData
+                dataPlace.forEach(data => {
+                    const all = document.querySelector('.all')
+                    const each = document.createElement('div')
+                    each.classList = 'each'
+                    each.innerHTML = `
+                        <img src="image/${data.image_path}" alt="">
+                        <p>id:${data.id}</p>
+                        <h2>name:${data.name}</h2>
+                        <h3>type:${data.type}</h3>
+                        <p>description:${data.description}</p>
+                        <h3>latitude:${data.latitude}</h3>
+                        <h3>longitude:${data.longitude}</h3>
+                        <h3>x:${data.x}</h3>
+                        <h3>y:${data.y}</h3>
+                        <h3>open_time:${data.open_time}</h3>
+                        <h3>close_time:${data.close_time}</h3>
+                        <div class='bts'>
+                            <button class='remove' data-id="${data.id}">Remove</button>
+                            <button class='update' data-id="${data.id}">Update</button>
+                        </div>
+                    `
+                    all.appendChild(each)
+                });
+               
+                if(name === 'admin'){
+                    const updateBtns = document.querySelectorAll('.update')
+                    updateBtns.forEach(updateBtn=>{
+                        updateBtn.style.display = 'block'
+                        updateBtn.addEventListener('click',()=>{
+                    
+                            const updateId = updateBtn.dataset.id
+
+                            const updateDiv = document.querySelector('.updateDiv')
+                            updateDiv.style.display = 'block'
+                            const close = document.querySelector('.closeBtn')
+                            close.addEventListener('click',()=>{
+                                console.log("asdf")
+                                updateDiv.style.display = 'none'
+                            })
+
+                            const nameUpdate = document.querySelector('.nameUpdate')
+                            const latitudeUpdate = document.querySelector('.latitudeUpdate')
+                            const longitudeUpdate = document.querySelector('.longitudeUpdate')
+                            const xUpdate = document.querySelector('.xUpdate')
+                            const yUpdate = document.querySelector('.yUpdate')
+                            const typeUpdate = document.querySelector('.typeUpdate')
+                            const open_timeUpdate = document.querySelector('.open_timeUpdate')
+                            const close_timeUpdate = document.querySelector('.close_timeUpdate')
+                            const descriptionUpdate = document.querySelector('.descriptionUpdate')
+
+                            const updateBtnSecond = document.querySelector('.updateBtnSecond')
+                            updateBtnSecond.addEventListener('click',async()=>{
+                                await fetch('http://localhost:4000/put-place',{
+                                    method:"PUT",
+                                    headers:{
+                                        'Content-Type':'application/json'
+                                    },
+                                    body:JSON.stringify({
+                                        id:updateId,
+                                        name:nameUpdate.value.trim(),
+                                        latitude:latitudeUpdate.value.trim(),
+                                        longitude:longitudeUpdate.value.trim(),
+                                        x:xUpdate.value.trim(),
+                                        y:yUpdate.value.trim(),
+                                        type:typeUpdate.value.trim(),
+                                        open_time:open_timeUpdate.value.trim(),
+                                        close_time:close_timeUpdate.value.trim(),
+                                        description:descriptionUpdate.value.trim(),
+                                    })
+                                })
+                            })
+                        })
+                    })
+                }
+                if(name === 'admin'){
+                    const removeBtns = document.querySelectorAll('.remove')
+                    removeBtns.forEach(removeBtn=>{
+                        removeBtn.style.display = 'block'
+                        removeBtn.addEventListener('click',async()=>{
+                            const removeId = removeBtn.dataset.id
+                            await fetch(`http://localhost:4000/delete-place/${removeId}`,{
+                                method:"DELETE"
+                            })
+                        })
+                    })
+                }
+
+            }
+            show()
+  
+            async function search() {
+                const search = document.querySelector('.search')
+                const placeResponse = await fetch('http://localhost:4000/place-get')
+                const placeInfos = await placeResponse.json()
+                const dataPlace = placeInfos.placeData
+                search.addEventListener('keyup',()=>{
+                    dataPlace.forEach(data => {
+                    
+                        if(data.id === Number(search.value)){
+                        const all = document.querySelector('.all')
+                        all.innerHTML = ''
+                        const each = document.createElement('div')
+                        each.classList = 'each'
+                        each.innerHTML = `
+                            <img src="image/${data.image_path}" alt="">
+                            <p>id:${data.id}</p>
+                            <h2>name:${data.name}</h2>
+                            <h3>type:${data.type}</h3>
+                            <p>description:${data.description}</p>
+                            <h3>latitude:${data.latitude}</h3>
+                            <h3>longitude:${data.longitude}</h3>
+                            <h3>x:${data.x}</h3>
+                            <h3>y:${data.y}</h3>
+                            <h3>open_time:${data.open_time}</h3>
+                            <h3>close_time:${data.close_time}</h3>
+                            <div class='bts'>
+                                <button class='remove' data-id="${data.id}">Remove</button>
+                                <button class='update' data-id="${data.id}">Update</button>
+                            </div>
+
+                        `
+                        all.appendChild(each)
+                    }
+                    else if(search.value === ''){
+                        show()
+                    }
+                    if(name === 'admin'){
+                        const updateBtns = document.querySelectorAll('.update')
+                        updateBtns.forEach(updateBtn=>{
+                            updateBtn.style.display = 'block'
+                            updateBtn.addEventListener('click',()=>{
+                        
+                                const updateId = updateBtn.dataset.id
+
+                                const updateDiv = document.querySelector('.updateDiv')
+                                updateDiv.style.display = 'block'
+                                const close = document.querySelector('.closeBtn')
+                                close.addEventListener('click',()=>{
+                                    console.log("asdf")
+                                    updateDiv.style.display = 'none'
+                                })
+
+                                const nameUpdate = document.querySelector('.nameUpdate')
+                                const latitudeUpdate = document.querySelector('.latitudeUpdate')
+                                const longitudeUpdate = document.querySelector('.longitudeUpdate')
+                                const xUpdate = document.querySelector('.xUpdate')
+                                const yUpdate = document.querySelector('.yUpdate')
+                                const typeUpdate = document.querySelector('.typeUpdate')
+                                const open_timeUpdate = document.querySelector('.open_timeUpdate')
+                                const close_timeUpdate = document.querySelector('.close_timeUpdate')
+                                const descriptionUpdate = document.querySelector('.descriptionUpdate')
+
+                                const updateBtnSecond = document.querySelector('.updateBtnSecond')
+                                updateBtnSecond.addEventListener('click',async()=>{
+                                    await fetch('http://localhost:4000/put-place',{
+                                        method:"PUT",
+                                        headers:{
+                                            'Content-Type':'application/json'
+                                        },
+                                        body:JSON.stringify({
+                                            id:updateId,
+                                            name:nameUpdate.value.trim(),
+                                            latitude:latitudeUpdate.value.trim(),
+                                            longitude:longitudeUpdate.value.trim(),
+                                            x:xUpdate.value.trim(),
+                                            y:yUpdate.value.trim(),
+                                            type:typeUpdate.value.trim(),
+                                            open_time:open_timeUpdate.value.trim(),
+                                            close_time:close_timeUpdate.value.trim(),
+                                            description:descriptionUpdate.value.trim(),
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    }
+                    if(name === 'admin'){
+                        const removeBtns = document.querySelectorAll('.remove')
+                        removeBtns.forEach(removeBtn=>{
+                            removeBtn.style.display = 'block'
+                            removeBtn.addEventListener('click',async()=>{
+                                const removeId = removeBtn.dataset.id
+                                await fetch(`http://localhost:4000/delete-place/${removeId}`,{
+                                    method:"DELETE"
+                                })
+                            })
+                        })
+                    }
+    
+
+                    })
+
+
+                });
+
+            }
+            search()
+            if(name === 'admin'){
+                const createButton = document.querySelector('.createButton')
+                createButton.style.display = 'block'
+                createButton.addEventListener('click',()=>{
+                const createDiv = document.querySelector('.createDiv')
+                createDiv.style.display = 'block'
+                const close = document.querySelector('.close')
+                close.addEventListener('click',async()=>{
+                    createDiv.style.display = 'none'
+                })
+                const id = document.querySelector('.id')
+                const name = document.querySelector('.name')
+                const latitude = document.querySelector('.latitude')
+                const longitude = document.querySelector('.longitude')
+                const x = document.querySelector('.x')
+                const y = document.querySelector('.y')
+                const type = document.querySelector('.type')
+                const open_time = document.querySelector('.open_time')
+                const close_time = document.querySelector('.close_time')
+                const description = document.querySelector('.description')
+
+                const create = document.querySelector('.create')
+                create.addEventListener('click',async()=>{
+                    await fetch('http://localhost:4000/post-place',{
+                        method:"POST",
+                        headers:{
+                            'Content-Type':'application/json'
+                        },
+                        body:JSON.stringify({
+                            id:id.value.trim(),
+                            name:name.value.trim(),
+                            latitude:latitude.value.trim(),
+                            longitude:longitude.value.trim(),
+                            x:x.value.trim(),
+                            y:y.value.trim(),
+                            type:type.value.trim(),
+                            open_time:open_time.value.trim(),
+                            close_time:close_time.value.trim(),
+                            description:description.value.trim(),
+                        })
+                    })
+                })
+
+            })
+            }
+
+        }
+    </script>
+</body>
+</html>

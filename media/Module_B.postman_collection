@@ -1,0 +1,1604 @@
+{
+	"info": {
+		"_postman_id": "cf0ece96-85e2-4c8c-982d-ada3b061841d",
+		"name": "module_b",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Authentication",
+			"item": [
+				{
+					"name": "1a. Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"admin\",\n\t\"password\":\"adminpass\"\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1a. Login Failed 401",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"adminss\",\n\t\"password\":\"adminpassss\"\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1c. Logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1c. Logout Failed 401",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Place",
+			"item": [
+				{
+					"name": "2a. All Places",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2b. Find Place",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place/1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2c. Create Place",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lorem ipsum",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Attraction",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "24.3883",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "52.3882",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "file"
+								},
+								{
+									"key": "open_time",
+									"value": "10:00",
+									"type": "text"
+								},
+								{
+									"key": "close_time",
+									"value": "17:00",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet de param static.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2c. Create Place Failed 422",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "52.3882",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "file"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet de param static.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2c. Create Place Failed 401",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lorem ipsum",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Attractions",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "24.3882",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "52.3882",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "file"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet de param static.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2e. Update Place",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lorem ipsum",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Attraction",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "24.3883",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "52.3882",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "file"
+								},
+								{
+									"key": "open_time",
+									"value": "17:00",
+									"type": "text"
+								},
+								{
+									"key": "close_time",
+									"value": "10:00",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet de param static.",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place/2",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2e. Update Place 400",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lorem ipsum",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "something",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "something",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "something",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "file"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet de param static.",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place/-1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2e. Update Place 401",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lorem ipsum",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Restaurants",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "24.3883",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "52.3882",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "file"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet de param static.",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place/2",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2d. Delete Place",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place/1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2d. Delete Place Failed 400",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place/-1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2d. Delete Place Failed 401",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/place/1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"place",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. Schedule",
+			"item": [
+				{
+					"name": "2a. All Schedule",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Create Schedule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"line\":1,\n\t\"from_place_id\":4,\n\t\"to_place_id\":5,\n\t\"departure_time\":\"13:00:00\",\n\t\"arrival_time\":\"14:05:00\",\n\t\"distance\":180,\n\t\"speed\":80,\n\t\"status\":\"AVAILABLE\"\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Create Schedule Failed 422",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"line\":1,\n\t\"from_place_id\":100,\n\t\"to_place_id\":150,\n\t\"departure_time\":\"13:00:00\",\n\t\"arrival_time\":\"14:05:00\",\n\t\"distance\":180,\n\t\"speed\":80,\n\t\"status\":\"AVAILABLE\"\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Create Schedule Failed 422",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"line\":1,\n\t\"from_place_id\":1,\n\t\"to_place_id\":2,\n\t\"departure_time\":\"15:00:00\",\n\t\"arrival_time\":\"14:05:00\",\n\t\"distance\":180,\n\t\"speed\":80,\n\t\"status\":\"AVAILABLE\"\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Create Schedule Failed 422",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"line\":1,\n\t\"from_place_id\":1,\n\t\"to_place_id\":2,\n\t\"departure_time\":\"1:00:00\",\n\t\"arrival_time\":\"2:05:00\",\n\t\"distance\":180,\n\t\"speed\":80,\n\t\"status\":\"AVAILABLE\"\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Create Schedule Failed 422",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"line\":1,\n\t\"from_place_id\":1,\n\t\"to_place_id\":2,\n\t\"departure_time\":\"11:00:00\",\n\t\"arrival_time\":\"12:05:00\",\n\t\"distance\":180,\n\t\"speed\":80,\n\t\"status\":\"AVAILABLES\"\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Create Schedule Failed 401",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"line\":1,\n\t\"from_place_id\":4,\n\t\"to_place_id\":5,\n\t\"departure_time\":\"13:00:00\",\n\t\"arrival_time\":\"14:05:00\",\n\t\"distance\":180,\n\t\"speed\":80\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Update Schedule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "line",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "from_place_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "to_place_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "departure_time",
+									"value": "10:00:00",
+									"type": "text"
+								},
+								{
+									"key": "arrival_time",
+									"value": "10:20:00",
+									"type": "text"
+								},
+								{
+									"key": "distance",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "speed",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "AVAILABLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule/1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Update Schedule 400",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "line",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "from_place_id",
+									"value": "something",
+									"type": "text"
+								},
+								{
+									"key": "to_place_id",
+									"value": "something",
+									"type": "text"
+								},
+								{
+									"key": "departure_time",
+									"value": "11:00:00",
+									"type": "text"
+								},
+								{
+									"key": "arrival_time",
+									"value": "10:20:00",
+									"type": "text"
+								},
+								{
+									"key": "distance",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "speed",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "UNAVAILABLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule/1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3a. Update Schedule 401",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "line",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "from_place_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "to_place_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "departure_time",
+									"value": "11:00:00",
+									"type": "text"
+								},
+								{
+									"key": "arrival_time",
+									"value": "10:20:00",
+									"type": "text"
+								},
+								{
+									"key": "distance",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "speed",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule/1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3b. Delete Schedule",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule/10",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3b. Delete Schedule Failed 401",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule/10",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3b. Delete Schedule Failed 400",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/schedule/-1",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"schedule",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4. Route",
+			"item": [
+				{
+					"name": "4a. Route Search",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/search/4/1/13:00:00",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"search",
+								"4",
+								"1",
+								"13:00:00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search Test Case #1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/search/5/1/13:00:00",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"search",
+								"5",
+								"1",
+								"13:00:00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search Test Case #2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/search/1/4/13:00:00",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"search",
+								"1",
+								"4",
+								"13:00:00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search Test Case #3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/search/4/1/13:00:00",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"search",
+								"4",
+								"1",
+								"13:00:00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search Test Case #4",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/search/12/8/13:00:00",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"search",
+								"12",
+								"8",
+								"13:00:00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search Test Case #5",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/search/8/13/13:00:00",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"search",
+								"8",
+								"13",
+								"13:00:00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search Failed 401",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/search/5/1/13:00:00",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"search",
+								"5",
+								"1",
+								"13:00:00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search History",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"from_place_id\":1,\n\t\"to_place_id\":2,\n\t\"schedule_id\":[1,3]\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/selection",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"selection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search History Failed 401",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer XXX"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"from_place_id\":-1,\n\t\"to_place_id\":-2,\n\t\"schedule_id\":[1,3]\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/selection",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"selection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a. Route Search History Failed 400",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d033e22ae348aeb5660fc2140aec35850c4da997"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"from_place_id\":-1,\n\t\"to_place_id\":-2,\n\t\"schedule_id\":-1\n}"
+						},
+						"url": {
+							"raw": "http://<server>/<XX>_server_a/api/v1/route/selection",
+							"protocol": "http",
+							"host": [
+								"<server>"
+							],
+							"path": [
+								"<XX>_server_a",
+								"api",
+								"v1",
+								"route",
+								"selection"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

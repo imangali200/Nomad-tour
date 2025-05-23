@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: lightblue;
+            border-radius:10px;
+            width: 350px;
+            padding: 20px 0;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+        }
+        input{
+            height: 30px;
+            border-radius: 10px;
+            border: 1px solid gray;
+            padding-left: 10px;
+        }
+        button{
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(30, 172, 255);
+            color: rgb(0, 0, 0);
+        }
+        .all{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .each{
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Find Route</h1>
+        <form action="">
+            <input type="text" class="fromPlace" placeholder="FROM_PLACE_ID">
+            <input type="text" class="toPlace" placeholder="TO_PLACE_ID">
+            <input type="text" class="time" placeholder="DEPARTURE_TIME">
+            <button class="find">Find route</button>
+        </form>
+    </div>
+    <div class="all"></div>
+    <script>
+        document.querySelector('.find').addEventListener('click',async(e)=>{
+            e.preventDefault()
+            const fromPlace = document.querySelector('.fromPlace').value.trim()
+            const toPlace = document.querySelector('.toPlace').value.trim()
+            const time = document.querySelector('.time').value.trim()
+            let allId = []
+
+            const response = await fetch(`http://localhost:1000/get-data?fromPlace=${fromPlace}&toPlace=${toPlace}&time=${time}`)
+            const datain = await response.json()
+            const datas = datain.filtered
+            datas.forEach(data => {
+                allId.push(data.id)
+                const all = document.querySelector('.all')
+                const each = document.createElement('div')
+                each.classList = 'each'
+                each.innerHTML = `
+                        <p>id:${data.id}</p>
+                        <h2>line:${data.line}</h2>
+                        <h3>from_place_id:${data.from_place_id}</h3>
+                        <p>to_place_id:${data.to_place_id}</p>
+                        <h3>departure_time:${data.departure_time}</h3>
+                        <h3>arrival_time:${data.arrival_time}</h3>
+                        <h3>distance:${data.distance}</h3>
+                        <h3>speed:${data.speed}</h3>
+                `
+                all.appendChild(each)
+            });
+            await fetch('http://localhost:1000/post-his',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({fromPlace,toPlace,allId})
+            })
+        })
+    </script>
+</body>
+</html>
